@@ -1,15 +1,12 @@
-package pl.net.rogala.converter.temperature;
+package pl.net.rogala.converter;
 
 import lombok.Data;
-
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.NotNull;
-
 @Component
 @Data
-public class TemperatureConverterForm {
+public class ConverterForm {
     @NumberFormat
     private String value;
 

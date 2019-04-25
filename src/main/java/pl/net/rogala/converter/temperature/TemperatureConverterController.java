@@ -7,6 +7,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.net.rogala.converter.BasicPOJO;
+import pl.net.rogala.converter.ConverterForm;
 
 import javax.validation.Valid;
 
@@ -30,57 +32,24 @@ public class TemperatureConverterController {
 
     @GetMapping("/temperature")
     public String showTemperatureConverterForm(Model model) {
-        model.addAttribute("tempForm", new TemperatureConverterForm());
+        model.addAttribute("tempForm", new ConverterForm());
         return "temperature/tempConvForm";
     }
 
     @PostMapping("/temperature")
     public String handleTemperatureConverterForm(
-            @ModelAttribute("tempForm") @Valid TemperatureConverterForm temperatureConverterForm,
+            @ModelAttribute("tempForm") @Valid ConverterForm converterForm,
             Model model,
             BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return "temperature/tempConvForm";
         } else {
-            TemperaturePOJO temperaturePOJO;
-            String incomeUnit = temperatureConverterForm.getIncomeUnit();
-            String outcomeUnit = temperatureConverterForm.getOutcomeUnit();
-            double value = Double.valueOf(temperatureConverterForm.getValue());
-            if (incomeUnit.equals(outcomeUnit)) {
-                temperaturePOJO = new TemperaturePOJO(value);
-                model.addAttribute("tempResult", temperaturePOJO);
-            } else if (incomeUnit.equals("Celsjusz")) {
-                if (outcomeUnit.equals("Kelvin")) {
-                    temperaturePOJO = temperatureConverterService.convertCelciusToKelvin(new TemperaturePOJO(value));
-                    model.addAttribute("tempResult", temperaturePOJO);
-                } else if (outcomeUnit.equals("Fahrenheit")) {
-                    temperaturePOJO = temperatureConverterService.convertCelsiusToFahrenheit(new TemperaturePOJO(value));
-                    model.addAttribute("tempResult", temperaturePOJO);
-                }
-                return "temperature/tempResult";
-            } else if (incomeUnit.equals("Kelvin")) {
-                if (outcomeUnit.equals("Celsjusz")) {
-                    temperaturePOJO = temperatureConverterService.convertKelvinToCelsius(new TemperaturePOJO(value));
-                    model.addAttribute("tempResult", temperaturePOJO);
-                } else if (outcomeUnit.equals("Fahrenheit")) {
-                    temperaturePOJO = temperatureConverterService.convertKelvinToFahrenheit(new TemperaturePOJO(value));
-                    model.addAttribute("tempResult", temperaturePOJO);
-                }
-                return "temperature/tempResult";
-            } else if (incomeUnit.equals("Fahrenheit")) {
-                if (outcomeUnit.equals("Celsjusz")) {
-                    temperaturePOJO = temperatureConverterService.convertFahrenheitToCelsius(new TemperaturePOJO(value));
-                    model.addAttribute("tempResult", temperaturePOJO);
-                } else if (outcomeUnit.equals("Kelvin")) {
-                    temperaturePOJO = temperatureConverterService.convertFahrenheitToKelvin(new TemperaturePOJO(value));
-                    model.addAttribute("tempResult", temperaturePOJO);
-                }
-                return "temperature/tempResult";
+            temperatureConverterService.convertTemperature(converterForm, model);
 
-            }
+            return "temperature/tempResult";
         }
-        return "temperature/tempResult";
-
     }
+
+
 }

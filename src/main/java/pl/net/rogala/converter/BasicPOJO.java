@@ -1,4 +1,4 @@
-package pl.net.rogala.converter.temperature;
+package pl.net.rogala.converter;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class TemperaturePOJO {
+public class BasicPOJO {
     private double value;
 
     @Override

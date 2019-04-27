@@ -2,15 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Length Converter</title>
+    <title>Time Converter</title>
 </head>
 <body>
-<form method="post" th:action="@{/length}" th:object="${lengthForm}">
+<form method="post" th:action="@{/time}" th:object="${timeForm}">
     Wartość do przeliczenia: Wartość do przeliczenia: <input type="text" th:field="*{value}" th:errorClass="error">
     <span class="error" th:errors="*{value}"></span>
     <br>
     Wybierz jednostkę wyjściową:
-    <li th:each="radioValue: ${lengthRadioAllValues}">
+    <li th:each="radioValue: ${timeRadioAllValues}">
         <input type="radio"
                th:field="*{incomeUnit}"
                th:value="${radioValue}" />
@@ -20,7 +20,7 @@
     </li>
     <br>
     Wybierz jednostkę, na którą chcesz przeliczyć:
-    <li th:each="radioValue: ${lengthRadioAllValues}">
+    <li th:each="radioValue: ${timeRadioAllValues}">
         <input type="radio"
                th:field="*{outcomeUnit}"
                th:value="${radioValue}" />

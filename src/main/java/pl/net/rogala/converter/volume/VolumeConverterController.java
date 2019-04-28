@@ -22,7 +22,7 @@ public class VolumeConverterController {
     }
 
     @ModelAttribute("volumeSingleSelectAllValues")
-    public String[] getSingleSelectAllValues() {
+    public String[] getVolumeSingleSelectAllValues() {
         return new String[]{
                 "metr sześcienny", "decymetr sześcienny", "centymetr sześcienny", "milimetr sześcienny"
         };

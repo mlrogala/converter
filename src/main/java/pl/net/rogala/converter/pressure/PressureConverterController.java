@@ -22,7 +22,7 @@ public class PressureConverterController {
     }
 
     @ModelAttribute("pressureSingleSelectAllValues")
-    public String[] getSingleSelectAllValues() {
+    public String[] getPressureSingleSelectAllValues() {
         return new String[]{
                 "Pa", "hPa", "atm", "bar", "mmHg"
         };

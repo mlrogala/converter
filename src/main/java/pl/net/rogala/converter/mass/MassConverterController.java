@@ -22,20 +22,20 @@ public class MassConverterController {
     }
 
     @ModelAttribute("massSingleSelectAllValues")
-    public String[] getSingleSelectAllValues() {
+    public String[] getMassSingleSelectAllValues() {
         return new String[]{
                 "kilogram", "tona", "funt", "uncja"
         };
     }
 
     @GetMapping("/mass")
-    public String showTemperatureConverterForm(Model model) {
+    public String showMassConverterForm(Model model) {
         model.addAttribute("massForm", new ConverterForm());
         return "temperature/massConvForm";
     }
 
     @PostMapping("/mass")
-    public String handleTemperatureConverterForm(
+    public String handleMassConverterForm(
             @ModelAttribute("massForm") @Valid ConverterForm converterForm,
             Model model,
             BindingResult bindingResult) {

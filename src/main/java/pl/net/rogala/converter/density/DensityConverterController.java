@@ -22,7 +22,7 @@ public class DensityConverterController {
     }
 
     @ModelAttribute("densitySingleSelectAllValues")
-    public String[] getSingleSelectAllValues() {
+    public String[] getDensitySingleSelectAllValues() {
         return new String[]{
                 "g/cm3", "kg/m3"
         };

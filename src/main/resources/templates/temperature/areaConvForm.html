@@ -5,6 +5,9 @@
     <title>Area Converter</title>
 </head>
 <body>
+<a href="/"><button>HOME</button></a>
+<br>
+<br>
 <form method="post" th:action="@{/area}" th:object="${areaForm}">
     Wartość do przeliczenia: Wartość do przeliczenia: <input type="text" th:field="*{value}" th:errorClass="error">
     <span class="error" th:errors="*{value}"></span>

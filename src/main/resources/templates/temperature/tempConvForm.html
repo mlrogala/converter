@@ -37,24 +37,27 @@
 </ul>
 <br>
 <form method="post" th:action="@{/temperature}" th:object="${tempForm}">
-    Wartość do przeliczenia: <input type="text" th:field="*{value}" th:errorClass="error">
+    Temperatura do przeliczenia: <input type="text" th:field="*{value}" th:errorClass="error">
     <span class="error" th:errors="*{value}"></span>
 <br>
+    <br>
     Wybierz jednostkę wyjściową:
     <select th:field="*{incomeUnit}">
         <option
-                th:each="dropdownValue: ${singleSelectAllValues}"
+                th:each="dropdownValue: ${singleTemperatureSelectAllValues}"
                 th:value="${dropdownValue}"
                 th:text="${dropdownValue}" ></option>
     </select>
     <br>
+    <br>
     Wybierz jednostkę, na którą chcesz przeliczyć:
     <select th:field="*{outcomeUnit}">
         <option
-                th:each="dropdownValue: ${singleSelectAllValues}"
+                th:each="dropdownValue: ${singleTemperatureSelectAllValues}"
                 th:value="${dropdownValue}"
                 th:text="${dropdownValue}" ></option>
     </select>
+    <br>
     <br><input type="submit" value="Przelicz">
 </form>
 

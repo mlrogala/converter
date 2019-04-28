@@ -37,8 +37,9 @@
 </ul>
 <br>
 <form method="post" th:action="@{/mass}" th:object="${massForm}">
-    Wartość do przeliczenia: <input type="text" th:field="*{value}" th:errorClass="error">
+    Masa do przeliczenia: <input type="text" th:field="*{value}" th:errorClass="error">
     <span class="error" th:errors="*{value}"></span>
+    <br>
     <br>
     Wybierz jednostkę wyjściową:
     <select th:field="*{incomeUnit}">
@@ -48,6 +49,7 @@
                 th:text="${dropdownValue}" ></option>
     </select>
     <br>
+    <br>
     Wybierz jednostkę, na którą chcesz przeliczyć:
     <select th:field="*{outcomeUnit}">
         <option
@@ -55,6 +57,7 @@
                 th:value="${dropdownValue}"
                 th:text="${dropdownValue}" ></option>
     </select>
+    <br>
     <br><input type="submit" value="Przelicz">
 </form>
 </body>

@@ -11,43 +11,43 @@ import javax.validation.Valid;
 @Service
 public class AreaConverterService {
 
-    public BasicPOJO convertCubicMeterToCubicCm(BasicPOJO cubicMeterArea) {
-        return new BasicPOJO(cubicMeterArea.getValue() * 10000d);
+    public BasicPOJO convertSqrtMeterToSqrtCm(BasicPOJO sqrtMeterArea) {
+        return new BasicPOJO(sqrtMeterArea.getValue() * 10000d);
     }
 
-    public BasicPOJO convertCubicCmToCubicMeter(BasicPOJO cubicCmArea) {
-        return new BasicPOJO(cubicCmArea.getValue() / 10000d);
+    public BasicPOJO convertSqrtCmToSqrtMeter(BasicPOJO sqrtCmArea) {
+        return new BasicPOJO(sqrtCmArea.getValue() / 10000d);
     }
 
-    public BasicPOJO convertCubicCmToCubicMm(BasicPOJO cubicCmArea) {
-        return new BasicPOJO(cubicCmArea.getValue() * 100d);
+    public BasicPOJO convertSqrtCmToSqrtMm(BasicPOJO sqrtCmArea) {
+        return new BasicPOJO(sqrtCmArea.getValue() * 100d);
     }
 
-    public BasicPOJO convertCubicMmToCubicCm(BasicPOJO cubicMmArea) {
-        return new BasicPOJO(cubicMmArea.getValue() / 100d);
+    public BasicPOJO convertSqrtMmToSqrtCm(BasicPOJO SqrtMmArea) {
+        return new BasicPOJO(SqrtMmArea.getValue() / 100d);
     }
 
-    public BasicPOJO convertCubicMeterToCubicMm(BasicPOJO cubicMeterArea) {
-        return new BasicPOJO(cubicMeterArea.getValue() * 1000000d);
+    public BasicPOJO convertSqrtMeterToSqrtMm(BasicPOJO sqrtMeterArea) {
+        return new BasicPOJO(sqrtMeterArea.getValue() * 1000000d);
     }
 
-    public BasicPOJO convertCubicMmToCubicMeter(BasicPOJO cubicMmArea) {
-        return new BasicPOJO(cubicMmArea.getValue() / 1000000d);
+    public BasicPOJO convertSqrtMmToSqrtMeter(BasicPOJO sqrtMmArea) {
+        return new BasicPOJO(sqrtMmArea.getValue() / 1000000d);
     }
 
-    public BasicPOJO convertCubicMeterToAre(BasicPOJO cubicMeterArea) {
-        return new BasicPOJO(cubicMeterArea.getValue() / 100d);
+    public BasicPOJO convertSqrtMeterToAre(BasicPOJO sqrtMeterArea) {
+        return new BasicPOJO(sqrtMeterArea.getValue() / 100d);
     }
 
-    public BasicPOJO convertAreToCubicMeter(BasicPOJO areArea) {
+    public BasicPOJO convertAreToSqrtMeter(BasicPOJO areArea) {
         return new BasicPOJO(areArea.getValue() * 100d);
     }
 
-    public BasicPOJO convertCubicMeterToHectare(BasicPOJO cubicMeterArea) {
-        return new BasicPOJO(cubicMeterArea.getValue() / 10000d);
+    public BasicPOJO convertSqrtMeterToHectare(BasicPOJO sqrtMeterArea) {
+        return new BasicPOJO(sqrtMeterArea.getValue() / 10000d);
     }
 
-    public BasicPOJO convertHectareToCubicMeter(BasicPOJO hectareArea) {
+    public BasicPOJO convertHectareToSqrtMeter(BasicPOJO hectareArea) {
         return new BasicPOJO(hectareArea.getValue() * 10000d);
     }
 
@@ -70,72 +70,72 @@ public class AreaConverterService {
         } else if (incomeUnit.equals("metr kwadratowy")) {
             switch (outcomeUnit) {
                 case "centymetr kwadratowy":
-                    areaPOJO = convertCubicMeterToCubicCm(new BasicPOJO(value));
+                    areaPOJO = convertSqrtMeterToSqrtCm(new BasicPOJO(value));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
                 case "milimetr kwadratowy":
-                    areaPOJO = convertCubicMeterToCubicMm(new BasicPOJO(value));
+                    areaPOJO = convertSqrtMeterToSqrtMm(new BasicPOJO(value));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
                 case "ar":
-                    areaPOJO = convertCubicMeterToAre(new BasicPOJO(value));
+                    areaPOJO = convertSqrtMeterToAre(new BasicPOJO(value));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
                 case "hektar":
-                    areaPOJO = convertCubicMeterToHectare(new BasicPOJO(value));
+                    areaPOJO = convertSqrtMeterToHectare(new BasicPOJO(value));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
             }
         } else if (incomeUnit.equals("centymetr kwadratowy")) {
             switch (outcomeUnit) {
                 case "metr kwadratowy":
-                    areaPOJO = convertCubicCmToCubicMeter(new BasicPOJO(value));
+                    areaPOJO = convertSqrtCmToSqrtMeter(new BasicPOJO(value));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
                 case "milimetr kwadratowy":
-                    areaPOJO = convertCubicCmToCubicMm(new BasicPOJO(value));
+                    areaPOJO = convertSqrtCmToSqrtMm(new BasicPOJO(value));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
                 case "ar":
-                    areaPOJO = convertCubicMeterToAre(convertCubicCmToCubicMeter(new BasicPOJO(value)));
+                    areaPOJO = convertSqrtMeterToAre(convertSqrtCmToSqrtMeter(new BasicPOJO(value)));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
                 case "hektar":
-                    areaPOJO = convertCubicCmToCubicMeter(convertCubicMeterToHectare(new BasicPOJO(value)));
+                    areaPOJO = convertSqrtCmToSqrtMeter(convertSqrtMeterToHectare(new BasicPOJO(value)));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
             }
         } else if (incomeUnit.equals("milimetr kwadratowy")) {
             switch (outcomeUnit) {
                 case "metr kwadratowy":
-                    areaPOJO = convertCubicMmToCubicMeter(new BasicPOJO(value));
+                    areaPOJO = convertSqrtMmToSqrtMeter(new BasicPOJO(value));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
                 case "centymetr kwadratowy":
-                    areaPOJO = convertCubicMmToCubicCm(new BasicPOJO(value));
+                    areaPOJO = convertSqrtMmToSqrtCm(new BasicPOJO(value));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
                 case "ar":
-                    areaPOJO = convertCubicMmToCubicMeter(convertCubicMeterToAre(new BasicPOJO(value)));
+                    areaPOJO = convertSqrtMmToSqrtMeter(convertSqrtMeterToAre(new BasicPOJO(value)));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
                 case "hektar":
-                    areaPOJO = convertCubicMmToCubicMeter(convertCubicMeterToHectare(new BasicPOJO(value)));
+                    areaPOJO = convertSqrtMmToSqrtMeter(convertSqrtMeterToHectare(new BasicPOJO(value)));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
             }
         } else if (incomeUnit.equals("ar")) {
             switch (outcomeUnit) {
                 case "centymetr kwadratowy":
-                    areaPOJO = convertAreToCubicMeter(convertCubicMeterToCubicCm(new BasicPOJO(value)));
+                    areaPOJO = convertAreToSqrtMeter(convertSqrtMeterToSqrtCm(new BasicPOJO(value)));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
                 case "milimetr kwadratowy":
-                    areaPOJO = convertAreToCubicMeter(convertCubicMeterToCubicMm(new BasicPOJO(value)));
+                    areaPOJO = convertAreToSqrtMeter(convertSqrtMeterToSqrtMm(new BasicPOJO(value)));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
                 case "metr":
-                    areaPOJO = convertAreToCubicMeter(new BasicPOJO(value));
+                    areaPOJO = convertAreToSqrtMeter(new BasicPOJO(value));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
                 case "hektar":
@@ -146,11 +146,11 @@ public class AreaConverterService {
         } else if (incomeUnit.equals("hektar")) {
             switch (outcomeUnit) {
                 case "centymetr kwadratowy":
-                    areaPOJO = convertHectareToCubicMeter(convertCubicMeterToCubicCm(new BasicPOJO(value)));
+                    areaPOJO = convertHectareToSqrtMeter(convertSqrtMeterToSqrtCm(new BasicPOJO(value)));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
                 case "milimetr kwadratowy":
-                    areaPOJO = convertHectareToCubicMeter(convertCubicMeterToCubicMm(new BasicPOJO(value)));
+                    areaPOJO = convertHectareToSqrtMeter(convertSqrtMeterToSqrtMm(new BasicPOJO(value)));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
                 case "ar":
@@ -158,7 +158,7 @@ public class AreaConverterService {
                     model.addAttribute("areaResult", areaPOJO);
                     break;
                 case "metr":
-                    areaPOJO = convertHectareToCubicMeter(new BasicPOJO(value));
+                    areaPOJO = convertHectareToSqrtMeter(new BasicPOJO(value));
                     model.addAttribute("areaResult", areaPOJO);
                     break;
             }

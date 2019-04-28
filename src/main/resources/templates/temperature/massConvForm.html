@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mass Converter</title>
+</head>
+<body>
+<form method="post" th:action="@{/mass}" th:object="${massForm}">
+    Wartość do przeliczenia: <input type="text" th:field="*{value}" th:errorClass="error">
+    <span class="error" th:errors="*{value}"></span>
+    <br>
+    Wybierz jednostkę wyjściową:
+    <select th:field="*{incomeUnit}">
+        <option
+                th:each="dropdownValue: ${massSingleSelectAllValues}"
+                th:value="${dropdownValue}"
+                th:text="${dropdownValue}" ></option>
+    </select>
+    <br>
+    Wybierz jednostkę, na którą chcesz przeliczyć:
+    <select th:field="*{outcomeUnit}">
+        <option
+                th:each="dropdownValue: ${massSingleSelectAllValues}"
+                th:value="${dropdownValue}"
+                th:text="${dropdownValue}" ></option>
+    </select>
+    <br><input type="submit" value="Przelicz">
+</form>
+</body>
+</html>

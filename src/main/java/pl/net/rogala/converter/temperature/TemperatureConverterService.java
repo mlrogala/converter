@@ -11,28 +11,28 @@ import javax.validation.Valid;
 @Service
 public class TemperatureConverterService {
 
-    public BasicPOJO convertCelciusToKelvin(BasicPOJO temperatureCelcius){
-        return new BasicPOJO(temperatureCelcius.getValue()+273.15);
+    public BasicPOJO convertCelciusToKelvin(BasicPOJO temperatureCelcius) {
+        return new BasicPOJO(temperatureCelcius.getValue() + 273.15d);
     }
 
-    public BasicPOJO convertKelvinToCelsius(BasicPOJO temperatureKelvin){
-       return new BasicPOJO(temperatureKelvin.getValue()-273.15);
+    public BasicPOJO convertKelvinToCelsius(BasicPOJO temperatureKelvin) {
+        return new BasicPOJO(temperatureKelvin.getValue() - 273.15d);
     }
 
-    public BasicPOJO convertCelsiusToFahrenheit(BasicPOJO temperatureCelsius){
-        return new BasicPOJO((temperatureCelsius.getValue()*1.8)+32);
+    public BasicPOJO convertCelsiusToFahrenheit(BasicPOJO temperatureCelsius) {
+        return new BasicPOJO((temperatureCelsius.getValue() * 1.8d) + 32d);
     }
 
-    public BasicPOJO convertFahrenheitToCelsius(BasicPOJO temperatureFahrenheit){
-        return new BasicPOJO((temperatureFahrenheit.getValue()-32)/1.8);
+    public BasicPOJO convertFahrenheitToCelsius(BasicPOJO temperatureFahrenheit) {
+        return new BasicPOJO((temperatureFahrenheit.getValue() - 32d) / 1.8d);
     }
 
-    public BasicPOJO convertKelvinToFahrenheit(BasicPOJO temperatureKelvin){
-        return new BasicPOJO((temperatureKelvin.getValue()*1.8)-459.67);
+    public BasicPOJO convertKelvinToFahrenheit(BasicPOJO temperatureKelvin) {
+        return new BasicPOJO((temperatureKelvin.getValue() * 1.8d) - 459.67d);
     }
 
-    public BasicPOJO convertFahrenheitToKelvin(BasicPOJO temperatureFahrenheit){
-        return new BasicPOJO((temperatureFahrenheit.getValue()+459.67)*5/9);
+    public BasicPOJO convertFahrenheitToKelvin(BasicPOJO temperatureFahrenheit) {
+        return new BasicPOJO((temperatureFahrenheit.getValue() + 459.67d) * 5d / 9d);
     }
 
     public void convertTemperature(@Valid @ModelAttribute("tempForm") ConverterForm converterForm, Model model) {
@@ -67,9 +67,6 @@ public class TemperatureConverterService {
                 temperaturePOJO = convertFahrenheitToKelvin(new BasicPOJO(value));
                 model.addAttribute("tempResult", temperaturePOJO);
             }
-
         }
     }
-
-
 }

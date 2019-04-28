@@ -21,8 +21,8 @@ public class TemperatureConverterController {
         this.temperatureConverterService = temperatureConverterService;
     }
 
-    @ModelAttribute("singleSelectAllValues")
-    public String[] getSingleSelectAllValues() {
+    @ModelAttribute("singleTemperatureSelectAllValues")
+    public String[] getTemperatureSingleSelectAllValues() {
         return new String[]{
                 "Celsjusz", "Kelvin", "Fahrenheit"
         };

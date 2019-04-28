@@ -22,20 +22,20 @@ public class TimeConverterController {
     }
 
     @ModelAttribute("timeRadioAllValues")
-    public String[] getLengthRadioAllValues() {
+    public String[] getTimeRadioAllValues() {
         return new String[]{
                 "sekundy", "minuty", "godziny", "doby", "lata"
         };
     }
 
     @GetMapping("/time")
-    public String showTemperatureConverterForm(Model model) {
+    public String showTimeConverterForm(Model model) {
         model.addAttribute("timeForm", new ConverterForm());
         return "temperature/timeConvForm";
     }
 
     @PostMapping("/time")
-    public String handleTemperatureConverterForm(
+    public String handleTimeConverterForm(
             @ModelAttribute("timeForm") @Valid ConverterForm converterForm,
             Model model,
             BindingResult bindingResult) {

@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Time result</title>
+    <title>Density Result</title>
     <style>
         ul {
             list-style-type: none;
@@ -28,17 +28,17 @@
     <li><a href="/temperature">TEMPERATURA</a></li>
     <li><a href="/length">DŁUGOŚĆ</a></li>
     <li><a href="/mass">MASA</a></li>
-    <li><a class="active" href="/time">CZAS</a></li>
+    <li><a href="/time">CZAS</a></li>
     <li><a href="/pressure">CIŚNIENIE</a></li>
     <li><a href="/area">POWIERZCHNIA</a></li>
     <li><a href="/volume">OBJĘTOŚĆ</a></li>
     <li><a href="/speed">PRĘDKOŚĆ</a></li>
-    <li><a href="/density">GĘSTOŚĆ</a></li>
+    <li><a class="active" href="/density">GĘSTOŚĆ</a></li>
 </ul>
 <br>
-Po przeliczeniu czas wynosi: <span th:text="${timeResult}"></span>
+Po przeliczeniu gęstość wynosi: <span th:text="${densityResult}"></span>
 <br>
 <br>
-<a href="/time"><button>WSTECZ</button></a>
+<a href="/density"><button>WSTECZ</button></a>
 </body>
 </html>

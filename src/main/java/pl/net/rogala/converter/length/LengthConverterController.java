@@ -29,13 +29,13 @@ public class LengthConverterController {
     }
 
     @GetMapping("/length")
-    public String showTemperatureConverterForm(Model model) {
+    public String showLengthConverterForm(Model model) {
         model.addAttribute("lengthForm", new ConverterForm());
         return "temperature/lengthConvForm";
     }
 
     @PostMapping("/length")
-    public String handleTemperatureConverterForm(
+    public String handleLengthConverterForm(
             @ModelAttribute("lengthForm") @Valid ConverterForm converterForm,
             Model model,
             BindingResult bindingResult) {
